@@ -5,17 +5,25 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const DEBOUNCE_DELAY = 300;
 const searchInput = document.getElementById('search-box');
+const refs = {
+  countryInfo: document.querySelector('.country-info')
+}
 
 searchInput.addEventListener('input', debounce(event => {
   fetchCountries(event.target.value.trim())
     .then(data => {
-      if (data.status === 404) {
-        Notify.failure('Oops, there is no country with that name')
-        return
-      }
-      if (data.length > 10) {
-        Notify.info('Too many matches found. Please enter a more specific name.')
-      }
-      console.log(data)
+      // if (data.status === 404) {
+      //   Notify.failure('Oops, there is no country with that name')
+      //   return
+      // }
+      // if (data.length > 10) {
+      //   Notify.info('Too many matches found. Please enter a more specific name.')
+      // }      
     })      
 }, DEBOUNCE_DELAY));
+
+
+
+
+
+npm install --save-dev parcel-transformer-hbs
